@@ -177,5 +177,35 @@
       "description": "An overview of microservices architecture, its benefits, challenges, and best practices for designing and deploying scalable web applications.",
       "link": "https://blog.example.com/scalable-microservices"
     }
+  ],
+  "education": {
+    "degree": "Placeholder Degree",
+    "institution": "Placeholder University",
+    "year": "YYYY",
+    "activities": ["Placeholder Activity 1", "Placeholder Activity 2"]
+  },
+  "certifications": [
+    {
+      "name": "Placeholder Certification",
+      "issuer": "Placeholder Issuer",
+      "date": "YYYY-MM-DD",
+      "link": "https://example.com/certification"
+    }
+  ],
+  "openSource": [
+    {
+      "repo": "Placeholder Repo",
+      "contributions": ["Placeholder contribution 1", "Placeholder contribution 2"],
+      "link": "https://github.com/yourusername/placeholder-repo"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Placeholder Publication Title",
+      "venue": "Placeholder Venue",
+      "date": "YYYY-MM-DD",
+      "link": "https://example.com/publication",
+      "summary": "Placeholder summary of the publication."
+    }
   ]
 }

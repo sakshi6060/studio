@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   title: SEO_CONFIG.title,
   description: SEO_CONFIG.description,
   icons: {
-    icon: '/favicon.ico', // Assumes favicon.ico is in the public directory
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon', sizes: 'any' },
+    ],
     // apple: '/apple-icon.png', // Example for apple touch icon if you have one
     // shortcut: '/favicon.ico', // For older browsers, often same as icon
   },

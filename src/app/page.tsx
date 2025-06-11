@@ -1,5 +1,5 @@
 
-import portfolioData from '@/data/portfolio.json';
+import type { PortfolioData } from '@/types/portfolio';
 import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
 import Highlights from '@/components/Highlights';
@@ -10,14 +10,13 @@ import ContactForm from '@/components/ContactForm';
 import { Separator } from '@/components/ui/separator';
 import { About } from '@/components/About';
 
-
-// Data type inference (optional, but good practice)
-type PortfolioData = typeof portfolioData;
+export const dynamic = 'force-static';
 
 async function getPortfolioData(): Promise<PortfolioData> {
-  // In a real app, this could be an API call or file read
-  // For this static import, it's already available
-  return portfolioData;
+  // Dynamically import the JSON data from the public directory
+  // The path is relative to this file: src/app/page.tsx
+  const dataModule = await import('../../public/data/portfolio.json');
+  return dataModule.default as PortfolioData;
 }
 
 export default async function Home() {
