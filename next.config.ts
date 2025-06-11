@@ -3,13 +3,16 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
+  basePath: '/studio',
+  assetPrefix: '/studio',
   typescript: {
-    ignoreBuildErrors: false, // Changed from true
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: false, // Changed from true
+    ignoreDuringBuilds: false,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,7 +21,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    unoptimized: true, // Added for static export
   },
 };
 
