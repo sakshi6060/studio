@@ -30,7 +30,7 @@ export interface ExperienceItem {
 }
 
 export interface ProjectImpact {
-  [key: string]: string;
+  [key: string]: string | undefined;
 }
 
 export interface Project {

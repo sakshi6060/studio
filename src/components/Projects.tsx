@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge'; // Added this import
 import { X, ExternalLink, Tag, Briefcase, HelpCircle } from 'lucide-react';
 
 interface ProjectImpact {
-  [key: string]: string;
+  [key: string]: string | undefined;
 }
 
 interface Project {
