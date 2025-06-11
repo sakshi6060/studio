@@ -1,7 +1,8 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'plugin:prettier/recommended'],
+  extends: ['next', 'next/core-web-vitals'],
   rules: {
-    'react/react-in-jsx-scope': 'off', // Not strictly necessary with new JSX transform
-    'react/no-unescaped-entities': 'off',
+    // Example: disable prop-types and React in scope
+    '@next/next/no-img-element': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
 };
