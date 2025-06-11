@@ -11,6 +11,7 @@ import { About } from '@/components/About';
 // import BackgroundAnimation from÷'@/components/BackgroundAnimation';
 import BalloonBackground from '@/components/BalloonBackground';
 
+
 export const dynamic = 'force-static';
 
 async function getPortfolioData(): Promise<PortfolioData> {
