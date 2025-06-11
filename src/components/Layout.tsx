@@ -1,10 +1,18 @@
+
 'use client';
 
 import Link from 'next/link';
 import { useTheme } from '@/lib/useTheme';
-import { Sun, Moon } from 'lucide-react'; // Using Lucide for consistency
+import { Sun, Moon, Menu } from 'lucide-react'; // Using Lucide for consistency
 import { Button } from '@/components/ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 const navLinks = [
   { id: 'hero', label: 'Home' },
@@ -19,6 +27,7 @@ const navLinks = [
 
 export function Layout({ children }: { children: ReactNode }) {
   const { theme, toggleTheme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
@@ -27,6 +36,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <Link
             href="/#hero"
             className="text-xl font-headline font-bold text-primary"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             PortfolioPro
           </Link>
@@ -55,7 +65,34 @@ export function Layout({ children }: { children: ReactNode }) {
                 <Sun className="h-5 w-5" />
               )}
             </Button>
-            {/* Mobile menu could be added here */}
+            <div className="md:hidden">
+              <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label="Open Mobile Menu"
+                  >
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[280px] sm:w-[320px]">
+                  <nav className="flex flex-col space-y-4 mt-8">
+                    {navLinks.map((link) => (
+                      <SheetClose asChild key={link.id}>
+                        <Link
+                          href={`#${link.id}`}
+                          className="text-lg font-medium p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label.toUpperCase()}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </header>
