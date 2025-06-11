@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
@@ -77,7 +79,12 @@ export function Layout({ children }: { children: ReactNode }) {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[280px] sm:w-[320px]">
-                  <nav className="flex flex-col space-y-4 mt-8">
+                  <SheetHeader className="mb-6 text-left">
+                    <SheetTitle className="text-primary">
+                      Navigation Menu
+                    </SheetTitle>
+                  </SheetHeader>
+                  <nav className="flex flex-col space-y-4">
                     {navLinks.map((link) => (
                       <SheetClose asChild key={link.id}>
                         <Link
