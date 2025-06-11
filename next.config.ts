@@ -5,10 +5,10 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false, // Changed from true
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false, // Changed from true
   },
   images: {
     remotePatterns: [

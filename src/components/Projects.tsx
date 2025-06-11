@@ -5,8 +5,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog'; // Using ShadCN Dialog
-import { X, ExternalLink, Tag, Briefcase, HelpCircle } from 'lucide-react'; // Using Lucide for consistency
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog';
+import { Badge } from '@/components/ui/badge'; // Added this import
+import { X, ExternalLink, Tag, Briefcase, HelpCircle } from 'lucide-react';
 
 interface ProjectImpact {
   [key: string]: string;

@@ -1,20 +1,47 @@
 
 import type { Metadata } from 'next';
-import { DefaultSeo } from 'next-seo';
-import SEO_CONFIG from '../../next-seo.config';
+// Removed: import { DefaultSeo } from 'next-seo';
+// Removed: import SEO_CONFIG from '../../next-seo.config';
 import './globals.css';
 import { Layout } from '@/components/Layout';
 import { Toaster } from '@/components/ui/toaster';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.yourdomain.com';
+const defaultTitle = 'Gaurav Suryavanshi | AI Developer & Full-Stack Engineer';
+const defaultDescription = 'Portfolio of Gaurav Suryavanshi, an AI Developer & Full-Stack Engineer with over 3 years of experience in building AI-powered applications and robust full-stack solutions.';
+
 export const metadata: Metadata = {
-  title: SEO_CONFIG.title,
-  description: SEO_CONFIG.description,
+  title: defaultTitle,
+  description: defaultDescription,
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon', sizes: 'any' },
     ],
     // apple: '/apple-icon.png', // Example for apple touch icon if you have one
-    // shortcut: '/favicon.ico', // For older browsers, often same as icon
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IE',
+    url: siteUrl,
+    siteName: 'Gaurav Suryavanshi Portfolio',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`, // Ensure og-image.png is in public/
+        width: 1200,
+        height: 630,
+        alt: 'Gaurav Suryavanshi Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: defaultDescription,
+    // images: [`${siteUrl}/og-image.png`], // Twitter images are often inferred from openGraph or can be added explicitly
+    creator: '@yourtwitterhandle',
+    site: '@yourtwitterhandle',
   },
 };
 
@@ -39,7 +66,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <DefaultSeo {...SEO_CONFIG} />
+        {/* Removed: <DefaultSeo {...SEO_CONFIG} /> */}
         <Layout>{children}</Layout>
         <Toaster />
       </body>
