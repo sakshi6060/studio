@@ -8,7 +8,8 @@ import Blogs from '@/components/Blogs';
 import ContactForm from '@/components/ContactForm';
 import { Separator } from '@/components/ui/separator';
 import { About } from '@/components/About';
-import BackgroundAnimation from '@/components/BackgroundAnimation';
+// import BackgroundAnimation from÷'@/components/BackgroundAnimation';
+import BalloonBackground from '@/components/BalloonBackground';
 
 export const dynamic = 'force-static';
 
@@ -24,11 +25,13 @@ export default async function Home() {
 
   return (
     <>
-          <BackgroundAnimation
+          {/* <BackgroundAnimation
         beamColor="#00FFFF"           // e.g. cyan beams
         gridLineColor="rgba(255,255,255,0.05)" // subtle grid
         particleDensity={0.0003}      // adjust particle count
-      />
+      /> */}
+          <BalloonBackground />
+    
       <Hero
         name={data.name}
         title={data.title}
