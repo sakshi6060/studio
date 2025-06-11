@@ -28,9 +28,8 @@ export function About({ summary }: AboutProps) {
             <Image
               src="https://placehold.co/600x600.png" // Replace with your actual image
               alt="Gaurav Suryavanshi"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-xl"
+              fill
+              className="rounded-lg shadow-xl object-cover"
               data-ai-hint="professional portrait"
             />
           </div>
@@ -50,3 +49,4 @@ export function About({ summary }: AboutProps) {
     </motion.section>
   );
 }
+
