@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -11,7 +10,7 @@ interface AboutProps {
 export function About({ summary }: AboutProps) {
   // For a more dedicated "About Me", you might want a separate field in portfolio.json
   // This uses the summary for now.
-  const aboutText = summary; 
+  const aboutText = summary;
 
   return (
     <motion.section
@@ -41,7 +40,10 @@ export function About({ summary }: AboutProps) {
               {aboutText}
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good book on philosophy and science fiction. I believe in lifelong learning and continuously strive to expand my skillset.
+              When I'm not coding, you can find me exploring new technologies,
+              contributing to open-source projects, or enjoying a good book on
+              philosophy and science fiction. I believe in lifelong learning and
+              continuously strive to expand my skillset.
             </p>
           </div>
         </div>
@@ -49,4 +51,3 @@ export function About({ summary }: AboutProps) {
     </motion.section>
   );
 }
-

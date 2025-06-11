@@ -1,10 +1,14 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import type { Mail, Link as LinkIcon } from 'lucide-react'; // Assuming these icons
-import { ArrowRight, Github, Linkedin, Mail as MailLucideIcon } from 'lucide-react'; // Corrected Mail import
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail as MailLucideIcon,
+} from 'lucide-react'; // Corrected Mail import
 
 interface ContactInfo {
   email: string;
@@ -86,17 +90,30 @@ export default function Hero({ name, title, summary, contact }: HeroProps) {
             </a>
           </Button>
         </motion.div>
-        <motion.div className="mt-10 flex justify-center space-x-6" variants={itemVariants}>
+        <motion.div
+          className="mt-10 flex justify-center space-x-6"
+          variants={itemVariants}
+        >
           {contact.github && (
             <Button variant="ghost" size="icon" asChild>
-              <a href={contact.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+              <a
+                href={contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+              >
                 <Github className="h-6 w-6 text-muted-foreground hover:text-foreground" />
               </a>
             </Button>
           )}
           {contact.linkedin && (
             <Button variant="ghost" size="icon" asChild>
-              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+              <a
+                href={contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+              >
                 <Linkedin className="h-6 w-6 text-muted-foreground hover:text-foreground" />
               </a>
             </Button>

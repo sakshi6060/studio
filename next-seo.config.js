@@ -1,9 +1,10 @@
-
 // Using .js extension as per prompt, but .ts would be fine too.
 // Default data from portfolio.json will be used if available, otherwise these fallbacks.
 const defaultTitle = 'Gaurav Suryavanshi | AI Developer & Full-Stack Engineer';
-const defaultDescription = 'Portfolio of Gaurav Suryavanshi, an AI Developer & Full-Stack Engineer with over 3 years of experience in building AI-powered applications and robust full-stack solutions.';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.yourdomain.com'; // Replace with your actual domain
+const defaultDescription =
+  'Portfolio of Gaurav Suryavanshi, an AI Developer & Full-Stack Engineer with over 3 years of experience in building AI-powered applications and robust full-stack solutions.';
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.yourdomain.com'; // Replace with your actual domain
 
 /** @type {import('next-seo').DefaultSeoProps} */
 const SEO_CONFIG = {

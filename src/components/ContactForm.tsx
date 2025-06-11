@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, type FormEvent } from 'react';
@@ -7,7 +6,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
 import { Send } from 'lucide-react';
 
 export default function ContactForm() {
@@ -20,7 +25,7 @@ export default function ContactForm() {
 
     const formData = new FormData(event.currentTarget);
     // Replace with your Formspree endpoint
-    const formspreeEndpoint = 'https://formspree.io/f/yourFormId'; 
+    const formspreeEndpoint = 'https://formspree.io/f/yourFormId';
 
     try {
       const response = await fetch(formspreeEndpoint, {
@@ -42,7 +47,9 @@ export default function ContactForm() {
         if (data.errors) {
           toast({
             title: 'Error Sending Message',
-            description: data.errors.map((error: any) => error.message).join(', '),
+            description: data.errors
+              .map((error: any) => error.message)
+              .join(', '),
             variant: 'destructive',
           });
         } else {
@@ -72,13 +79,20 @@ export default function ContactForm() {
         </h2>
         <Card className="max-w-2xl mx-auto shadow-xl dark:shadow-primary/10">
           <CardHeader>
-            <CardTitle className="font-headline text-2xl">Send me a message</CardTitle>
-            <CardDescription>I'm always open to discussing new projects, creative ideas or opportunities.</CardDescription>
+            <CardTitle className="font-headline text-2xl">
+              Send me a message
+            </CardTitle>
+            <CardDescription>
+              I'm always open to discussing new projects, creative ideas or
+              opportunities.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="font-medium">Your Name</Label>
+                <Label htmlFor="name" className="font-medium">
+                  Your Name
+                </Label>
                 <Input
                   id="name"
                   name="name"
@@ -90,7 +104,9 @@ export default function ContactForm() {
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="font-medium">Your Email</Label>
+                <Label htmlFor="email" className="font-medium">
+                  Your Email
+                </Label>
                 <Input
                   id="email"
                   name="_replyto" // For Formspree to set reply-to
@@ -102,7 +118,9 @@ export default function ContactForm() {
                 />
               </div>
               <div>
-                <Label htmlFor="message" className="font-medium">Your Message</Label>
+                <Label htmlFor="message" className="font-medium">
+                  Your Message
+                </Label>
                 <Textarea
                   id="message"
                   name="message"

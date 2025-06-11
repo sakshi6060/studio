@@ -1,5 +1,11 @@
-
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CalendarDays, ArrowRight } from 'lucide-react';
 
@@ -27,7 +33,6 @@ const formatDate = (dateString: string) => {
   }
 };
 
-
 export default function Blogs({ blogs }: BlogsProps) {
   const sortedBlogs = [...blogs].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -41,18 +46,30 @@ export default function Blogs({ blogs }: BlogsProps) {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {sortedBlogs.map((blog, index) => (
-            <Card key={index} className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 dark:hover:shadow-primary/20">
+            <Card
+              key={index}
+              className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 dark:hover:shadow-primary/20"
+            >
               <CardHeader>
-                <CardTitle className="font-headline text-xl text-primary">{blog.title}</CardTitle>
+                <CardTitle className="font-headline text-xl text-primary">
+                  {blog.title}
+                </CardTitle>
                 <CardDescription className="flex items-center text-sm text-muted-foreground pt-1">
-                  <CalendarDays className="w-4 h-4 mr-2" /> {formatDate(blog.date)}
+                  <CalendarDays className="w-4 h-4 mr-2" />{' '}
+                  {formatDate(blog.date)}
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-sm text-muted-foreground line-clamp-3">{blog.description}</p>
+                <p className="text-sm text-muted-foreground line-clamp-3">
+                  {blog.description}
+                </p>
               </CardContent>
               <CardFooter>
-                <Button variant="link" asChild className="p-0 text-accent hover:text-accent/80">
+                <Button
+                  variant="link"
+                  asChild
+                  className="p-0 text-accent hover:text-accent/80"
+                >
                   <a href={blog.link} target="_blank" rel="noopener noreferrer">
                     Read More <ArrowRight className="ml-2 h-4 w-4" />
                   </a>

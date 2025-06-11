@@ -1,9 +1,16 @@
-
 'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Building, Briefcase, CalendarDays, ChevronDown, ChevronUp, Award, ListChecks } from 'lucide-react'; // Using Lucide for icons
+import {
+  Building,
+  Briefcase,
+  CalendarDays,
+  ChevronDown,
+  ChevronUp,
+  Award,
+  ListChecks,
+} from 'lucide-react'; // Using Lucide for icons
 
 interface ExperienceItemProps {
   company: string;
@@ -37,7 +44,9 @@ function ExperienceItem({ exp }: { exp: ExperienceItemProps }) {
           aria-expanded={isOpen}
         >
           <div>
-            <h3 className="text-lg font-headline font-semibold text-primary">{exp.role}</h3>
+            <h3 className="text-lg font-headline font-semibold text-primary">
+              {exp.role}
+            </h3>
             <p className="text-md text-muted-foreground flex items-center">
               <Building className="w-4 h-4 mr-2" /> {exp.company}
             </p>
@@ -45,9 +54,13 @@ function ExperienceItem({ exp }: { exp: ExperienceItemProps }) {
               <CalendarDays className="w-4 h-4 mr-2" /> {exp.period}
             </p>
           </div>
-          {isOpen ? <ChevronUp className="w-5 h-5 text-muted-foreground" /> : <ChevronDown className="w-5 h-5 text-muted-foreground" />}
+          {isOpen ? (
+            <ChevronUp className="w-5 h-5 text-muted-foreground" />
+          ) : (
+            <ChevronDown className="w-5 h-5 text-muted-foreground" />
+          )}
         </button>
-        
+
         <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
@@ -61,7 +74,8 @@ function ExperienceItem({ exp }: { exp: ExperienceItemProps }) {
             >
               <div className="mt-4 pt-4 border-t border-border">
                 <h4 className="text-sm font-semibold mb-2 flex items-center text-foreground">
-                  <ListChecks className="w-4 h-4 mr-2 text-accent" /> Responsibilities:
+                  <ListChecks className="w-4 h-4 mr-2 text-accent" />{' '}
+                  Responsibilities:
                 </h4>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                   {exp.responsibilities.map((r, i) => (
@@ -101,4 +115,3 @@ export default function Experience({ experience }: ExperienceProps) {
     </section>
   );
 }
-

@@ -1,8 +1,13 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Lightbulb, HelpCircle } from 'lucide-react'; // Example icons
 
@@ -40,16 +45,22 @@ export default function Skills({ skills }: SkillsProps) {
                     {skill.name}
                     <Badge variant="secondary">{skill.level}</Badge>
                   </CardTitle>
-                  <CardDescription>{skill.years} years of experience</CardDescription>
+                  <CardDescription>
+                    {skill.years} years of experience
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   {/* Initial content can be short description or key focus area */}
-                  <p className="text-sm text-muted-foreground line-clamp-2">{skill.focus.join(', ')}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {skill.focus.join(', ')}
+                  </p>
                 </CardContent>
               </Card>
               {/* Tooltip-like overlay on hover/focus */}
               <div className="absolute inset-0 p-4 bg-background/95 dark:bg-card/95 border border-border rounded-lg shadow-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto flex flex-col overflow-y-auto">
-                <h4 className="font-headline text-lg font-semibold mb-2 text-primary">{skill.name}</h4>
+                <h4 className="font-headline text-lg font-semibold mb-2 text-primary">
+                  {skill.name}
+                </h4>
                 <div className="mb-3">
                   <h5 className="text-sm font-medium flex items-center mb-1 text-foreground">
                     <Lightbulb className="w-4 h-4 mr-2 text-accent" />

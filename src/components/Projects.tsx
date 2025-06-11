@@ -1,11 +1,24 @@
-
 'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge'; // Added this import
 import { X, ExternalLink, Tag, Briefcase, HelpCircle } from 'lucide-react';
 
@@ -76,15 +89,25 @@ export default function Projects({ projects }: ProjectsProps) {
             >
               <Card className="h-full hover:shadow-xl transition-shadow duration-300 dark:hover:shadow-primary/20">
                 <CardHeader>
-                  <CardTitle className="font-headline text-xl text-primary">{project.name}</CardTitle>
-                  <CardDescription className="line-clamp-2">{project.description}</CardDescription>
+                  <CardTitle className="font-headline text-xl text-primary">
+                    {project.name}
+                  </CardTitle>
+                  <CardDescription className="line-clamp-2">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {project.stack.slice(0, 3).map(tech => (
-                       <Badge key={tech} variant="secondary">{tech}</Badge>
+                    {project.stack.slice(0, 3).map((tech) => (
+                      <Badge key={tech} variant="secondary">
+                        {tech}
+                      </Badge>
                     ))}
-                    {project.stack.length > 3 && <Badge variant="secondary">+{project.stack.length - 3}</Badge>}
+                    {project.stack.length > 3 && (
+                      <Badge variant="secondary">
+                        +{project.stack.length - 3}
+                      </Badge>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -93,60 +116,87 @@ export default function Projects({ projects }: ProjectsProps) {
         </div>
 
         <AnimatePresence>
-        {selectedProject && (
-          <Dialog open={!!selectedProject} onOpenChange={(isOpen) => !isOpen && setSelectedProject(null)}>
-            <DialogContent className="sm:max-w-[625px] max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="font-headline text-2xl text-primary">{selectedProject.name}</DialogTitle>
-                <DialogDescription className="pt-2">{selectedProject.description}</DialogDescription>
-              </DialogHeader>
-              
-              <div className="py-4 space-y-4">
-                <div>
-                  <h4 className="font-semibold text-md mb-2 flex items-center"><Tag className="w-4 h-4 mr-2 text-accent" /> Tech Stack</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.stack.map(tag => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
+          {selectedProject && (
+            <Dialog
+              open={!!selectedProject}
+              onOpenChange={(isOpen) => !isOpen && setSelectedProject(null)}
+            >
+              <DialogContent className="sm:max-w-[625px] max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle className="font-headline text-2xl text-primary">
+                    {selectedProject.name}
+                  </DialogTitle>
+                  <DialogDescription className="pt-2">
+                    {selectedProject.description}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="py-4 space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-md mb-2 flex items-center">
+                      <Tag className="w-4 h-4 mr-2 text-accent" /> Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.stack.map((tag) => (
+                        <Badge key={tag} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-md mb-2 flex items-center">
+                      <Briefcase className="w-4 h-4 mr-2 text-accent" /> Impact
+                      Metrics
+                    </h4>
+                    <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                      {Object.entries(selectedProject.impact).map(
+                        ([key, value]) => (
+                          <li key={key}>
+                            <span className="font-medium text-foreground">
+                              {key}:
+                            </span>{' '}
+                            {value}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-md mb-2 flex items-center">
+                      <HelpCircle className="w-4 h-4 mr-2 text-accent" />{' '}
+                      Interview Questions
+                    </h4>
+                    <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                      {selectedProject.questions.map((q, i) => (
+                        <li key={i}>{q}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-md mb-2 flex items-center"><Briefcase className="w-4 h-4 mr-2 text-accent" /> Impact Metrics</h4>
-                  <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                    {Object.entries(selectedProject.impact).map(([key, value]) => (
-                      <li key={key}><span className="font-medium text-foreground">{key}:</span> {value}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-md mb-2 flex items-center"><HelpCircle className="w-4 h-4 mr-2 text-accent" /> Interview Questions</h4>
-                  <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                    {selectedProject.questions.map((q, i) => (
-                      <li key={i}>{q}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <DialogFooter className="sm:justify-start">
-                 <Button type="button" asChild>
-                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer">
+                <DialogFooter className="sm:justify-start">
+                  <Button type="button" asChild>
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       View Code <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
-                <DialogClose asChild>
-                  <Button type="button" variant="outline">
-                    Close
-                  </Button>
-                </DialogClose>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
-        )}
-      </AnimatePresence>
-
+                  <DialogClose asChild>
+                    <Button type="button" variant="outline">
+                      Close
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

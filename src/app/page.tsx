@@ -1,4 +1,3 @@
-
 import type { PortfolioData } from '@/types/portfolio';
 import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';

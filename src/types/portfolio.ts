@@ -1,4 +1,3 @@
-
 export interface ContactInfo {
   email: string;
   website: string;

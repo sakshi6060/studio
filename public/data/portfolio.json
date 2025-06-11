@@ -1,4 +1,3 @@
-
 {
   "name": "Gaurav Suryavanshi",
   "title": "AI Developer & Full-Stack Engineer",
@@ -14,7 +13,11 @@
       "name": "Python",
       "level": "Expert",
       "years": 5,
-      "focus": ["Machine Learning (Scikit-learn, TensorFlow, PyTorch)", "Data Analysis (Pandas, NumPy)", "API Development (Flask, FastAPI)"],
+      "focus": [
+        "Machine Learning (Scikit-learn, TensorFlow, PyTorch)",
+        "Data Analysis (Pandas, NumPy)",
+        "API Development (Flask, FastAPI)"
+      ],
       "questions": [
         "Explain the Global Interpreter Lock (GIL) in Python and its implications for concurrent programming.",
         "Describe different ways to optimize Python code for performance."
@@ -34,7 +37,11 @@
       "name": "Cloud Platforms (AWS, GCP)",
       "level": "Proficient",
       "years": 3,
-      "focus": ["Serverless Architectures (Lambda, Cloud Functions)", "Containerization (Docker, Kubernetes)", "Database Management (RDS, Firestore)"],
+      "focus": [
+        "Serverless Architectures (Lambda, Cloud Functions)",
+        "Containerization (Docker, Kubernetes)",
+        "Database Management (RDS, Firestore)"
+      ],
       "questions": [
         "Describe a scenario where you would choose a serverless approach over a traditional server-based one.",
         "What are some best practices for securing applications in the cloud?"
@@ -44,7 +51,11 @@
       "name": "Databases (SQL & NoSQL)",
       "level": "Advanced",
       "years": 4,
-      "focus": ["PostgreSQL, MySQL", "MongoDB, Redis", "Database design and optimization"],
+      "focus": [
+        "PostgreSQL, MySQL",
+        "MongoDB, Redis",
+        "Database design and optimization"
+      ],
       "questions": [
         "Explain the ACID properties in the context of database transactions.",
         "When would you prefer a NoSQL database over a SQL database?"
@@ -118,7 +129,13 @@
     {
       "name": "Portfolio Pro (This Website)",
       "description": "A dynamic, data-driven personal portfolio showcasing skills and projects, built with Next.js, Tailwind CSS, and Framer Motion.",
-      "stack": ["Next.js", "React", "Tailwind CSS", "Framer Motion", "TypeScript"],
+      "stack": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Framer Motion",
+        "TypeScript"
+      ],
       "impact": {
         "User Engagement": "Designed for high readability and intuitive navigation.",
         "Development Efficiency": "Leverages modern web technologies for rapid development."
@@ -195,7 +212,10 @@
   "openSource": [
     {
       "repo": "Placeholder Repo",
-      "contributions": ["Placeholder contribution 1", "Placeholder contribution 2"],
+      "contributions": [
+        "Placeholder contribution 1",
+        "Placeholder contribution 2"
+      ],
       "link": "https://github.com/yourusername/placeholder-repo"
     }
   ],
